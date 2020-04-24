@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    code-server:
+        image: codercom/code-server
+        ports:
+            - '8191:8080'
+        volumes:
+            - '/home/$PWD/workbench:/home/coder/project'
+        environment:
+            PASSWORD: vscode
+        user: root
+        ipc: host
+        restart: unless-stopped # or "always"
